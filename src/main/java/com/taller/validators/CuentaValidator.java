@@ -28,6 +28,16 @@ public class CuentaValidator {
                 "El número de cuenta es obligatorio",
                 CuentaInvalidaException::new
         );
+        if (!cuenta.getNumeroCuenta().matches("^\\d{1,12}$")) {
+            throw new CuentaInvalidaException("El número de cuenta debe tener solo dígitos y máximo 12 caracteres.");
+        }
+    }
+
+    public String normalizarNumeroCuenta(String numeroCuenta) {
+        if (numeroCuenta == null) {
+            return null;
+        }
+        return numeroCuenta.trim().replace(" ", "");
     }
 
     public void validarSaldo(CuentaBancaria cuenta){
@@ -36,6 +46,12 @@ public class CuentaValidator {
                 "El saldo no puede ser negativo",
                 CuentaInvalidaException::new
         );
+    }
+
+    public void validarSaldoInicial(double saldo){
+        if (saldo <= 0) {
+            throw new CuentaInvalidaException("El saldo inicial debe ser mayor que cero.");
+        }
     }
 
     public void validarActivo(CuentaBancaria cuenta){

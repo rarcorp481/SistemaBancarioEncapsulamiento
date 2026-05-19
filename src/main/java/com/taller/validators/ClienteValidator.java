@@ -7,6 +7,7 @@ public class ClienteValidator {
 
     public void validarCliente(Cliente cliente){
         validarClienteNulo(cliente);
+        validarIdCliente(cliente);
         validarNombreCompleto(cliente);
         validarCuenta(cliente);
 
@@ -16,6 +17,14 @@ public class ClienteValidator {
         ValidatorUnits.validarNoNulo(
                 cliente,
                 "El cliente es obligatorio.",
+                ClienteInvalidoException::new
+        );
+    }
+
+    public void validarIdCliente(Cliente cliente){
+        ValidatorUnits.validarNoNulo(
+                cliente.getId(),
+                "El ID es obligatorio",
                 ClienteInvalidoException::new
         );
     }

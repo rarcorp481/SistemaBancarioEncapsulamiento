@@ -6,11 +6,20 @@ import com.taller.models.TarjetaDebito;
 public class TarjetaValidator {
 
     public void validatTarjeta(TarjetaDebito tarjetaDebito){
+        validarTarjeta(tarjetaDebito);
+    }
+
+    public void validarTarjeta(TarjetaDebito tarjetaDebito){
         validarTarjetaNoNula(tarjetaDebito);
         validarNumeroTarjeta(tarjetaDebito);
         validarPin(tarjetaDebito);
-        validarIsBloqueo(tarjetaDebito);
+    }
 
+    public void validarTarjetaBloqueada(TarjetaDebito tarjetaDebito){
+        validarTarjetaNoNula(tarjetaDebito);
+        if (!tarjetaDebito.isBloqueada()){
+            throw new TarjetaInvalidaException("La tarjeta debe estar bloqueada.");
+        }
     }
 
     public void validarTarjetaNoNula(TarjetaDebito tarjetaDebito){
@@ -45,8 +54,13 @@ public class TarjetaValidator {
     }
 
     public void validarIsBloqueo(TarjetaDebito tarjetaDebito){
-        if (!tarjetaDebito.isBloqueada()){
-            throw new TarjetaInvalidaException("Operación inválida.");
+        validarTarjetaBloqueada(tarjetaDebito);
+    }
+
+    public void validarTarjetaDesbloqueada(TarjetaDebito tarjetaDebito){
+        validarTarjetaNoNula(tarjetaDebito);
+        if (tarjetaDebito.isBloqueada()){
+            throw new TarjetaInvalidaException("La tarjeta ya está bloqueada.");
         }
     }
 }
