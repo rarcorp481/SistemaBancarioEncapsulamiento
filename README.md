@@ -11,6 +11,23 @@ El sistema permite:
 
 La informacion se maneja en memoria mediante listas globales, por lo que el proyecto esta pensado como una demostracion de logica de negocio, validaciones y relacion entre clases, no como una aplicacion persistente con base de datos.
 
+## Dependencias
+
+Para correr este proyecto necesitas lo siguiente:
+
+- Git instalado
+- IntelliJ IDEA
+- JDK 21
+
+## Cómo clonar el repositorio
+
+1. Abre la carpeta donde quieres clonar el proyecto.
+2. Haz clic derecho dentro de esa carpeta y abre la terminal o bash desde ese contexto.
+3. Ejecuta: `git clone https://github.com/rarcorp481/SistemaBancarioEncapsulamiento.git`.
+4. Abre IntelliJ IDEA.
+5. Selecciona la opcion para abrir un proyecto existente.
+6. Elige la carpeta clonada y deja que IntelliJ indexe el proyecto.
+
 ## Relacion entre clases
 
 La clase `Cliente` representa al titular de la cuenta. Cada cliente tiene un `id` autogenerado, nombre, apellido y una instancia de `CuentaBancaria`.
