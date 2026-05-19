@@ -28,6 +28,50 @@ Para correr este proyecto necesitas lo siguiente:
 5. Selecciona la opcion para abrir un proyecto existente.
 6. Elige la carpeta clonada y deja que IntelliJ indexe el proyecto.
 
+## Árbol de directorios
+
+```text
+.
+└── com
+    └── taller
+        ├── contracts
+        │   ├── IClienteService.java
+        │   ├── ICuentaService.java
+        │   ├── ITarjetaService.java
+        │   └── ITransaccionService.java
+        ├── exceptions
+        │   ├── ClienteInvalidoException.java
+        │   ├── ClienteNoEncontradoException.java
+        │   ├── CuentaInvalidaException.java
+        │   ├── CuentaNoEncontradaException.java
+        │   ├── SaldoInvalidoException.java
+        │   ├── TarjetaInvalidaException.java
+        │   ├── TarjetaNoEncontradaException.java
+        │   └── TransaccionInvalidaException.java
+        ├── Main.java
+        ├── models
+        │   ├── Cliente.java
+        │   ├── CuentaBancaria.java
+        │   ├── enums
+        │   │   ├── MetodoPagoTransaccion.java
+        │   │   └── TipoTransaccion.java
+        │   ├── TarjetaDebito.java
+        │   └── Transaccion.java
+        ├── persistance
+        │   └── Global.java
+        ├── service
+        │   ├── ClienteService.java
+        │   ├── CuentaService.java
+        │   ├── TarjetaService.java
+        │   └── TransaccionService.java
+        └── validators
+            ├── ClienteValidator.java
+            ├── CuentaValidator.java
+            ├── TarjetaValidator.java
+            ├── TransaccionValidator.java
+            └── ValidatorUnits.java
+```
+
 ## Relacion entre clases
 
 La clase `Cliente` representa al titular de la cuenta. Cada cliente tiene un `id` autogenerado, nombre, apellido y una instancia de `CuentaBancaria`.
